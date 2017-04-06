@@ -9,6 +9,8 @@ gosu postgres postgres --single -jE <<- EOSQL
 EOSQL
 echo
 gosu postgres postgres --single -jE ApiManagerDS <<- EOSQL
+CREATE USER apiman WITH ENCRYPTED PASSWORD 'apiman';
+   GRANT ALL PRIVILEGES ON DATABASE ApiManagerDS to apiman;
 -- Changeset c:/Users/ewittman/git/apiman/apiman/distro/ddl/src/main/liquibase/current/000-apiman-manager-api.db.sequences.changelog.xml::1434723514712-2::apiman (generated)
 CREATE SEQUENCE hibernate_sequence START WITH 999;
 
